@@ -1,3 +1,5 @@
+from random import randint
+
 import Equipment
 import Effects
 

@@ -1,11 +1,10 @@
-# 8/14/2024
-# add wizard flavor text for intro.
-# input logic in place. rogue has feint action which applies the active effect flat foot which successfully
-# decreases monster ac and guarantees
-# object orient combat module, maybe. it works fine now.
+# 2025-06-01
+# Rogue has full sneak attack with feint
+# Fighter now has shield bash which applies stun effect.
+# Need to work out stun mechanics.
 # bestiary initialized. When pulling monster for use run the equipping method inside bestiary for standard gear
 # and inside main to add non-standard gear.
-# install colorama package for colored text
+
 from Player import Character
 from Bestiary import *
 import Combat
@@ -36,7 +35,9 @@ This set of leather armor should do the trick. Also, its quiet so it'll help you
 You really didn't bring anything with you!""")
     player.equipping(weapon='dagger', armor='leather_armor')
 elif player.cls == 'Wizard':
-    print("add flavor text")
+    print("""old grimoire I have. It doesn't do me any real good. I was never good at magic.
+This one though has a simple air blast. You magical types don't really use armor so you tend to be more
+vulnerable than most but can you can hit more frequently. You really didn't bring anything with you!""")
     player.equipping(weapon='air_tome')
 print(player.name, player.cls, 'total ac', player.ac, 'shield bonus', player.shield_bonus, 'armor bonus',
       player.armor_bonus, 'weapon and dmg range', player.weapon, player.dmg_range)

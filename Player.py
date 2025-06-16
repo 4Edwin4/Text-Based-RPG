@@ -1,3 +1,5 @@
+from random import randint
+
 import Classes
 import Equipment
 import Effects
@@ -52,7 +54,7 @@ class Character:
         self.touch_ac = 10 + self.dex
 
     def apply(self, effect="", target=""):
-        action2effect = {'Feint': 'FlatFoot'}
+        action2effect = {'Feint': 'FlatFoot', 'Shield bash': 'Stun'}
         target = target
 
         for name in dir(Effects):
@@ -70,6 +72,12 @@ class Character:
                     if self.active_effects[effect] < effect_page.duration:
                         self.active_effects[effect] += 1
                         effect_page.active(self)
+                    if hasattr(effect_page, 'success_rate'):
+                        chance = randint(1, 100)
+                        if chance >= effect_page.success_rate:
+                            effect_page.active(self)
+                        else:
+                            print(self.name, 'shook off the effect of', effect_page.name)
                 else:
                     continue
 
@@ -81,3 +89,4 @@ class Character:
                 del self.active_effects[effect]
                 self.ac_calc()
                 self.touch_ac_calc()
+

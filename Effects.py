@@ -24,3 +24,10 @@ class Poison:
         print(self.name, "feels the poison taking some of their life!")
         self.hp -= 1
 
+
+class Stun:
+    duration = 1
+    name = 'Stun'
+
+    def active(self):
+        print(self.name + " is stupefied. They might not be able to act this turn!")
