@@ -9,7 +9,7 @@ def fighter(self):
     self.wis += 1
     self.hp = 10 + self.con
     self.max_hp = self.hp
-
+    self.actions_list.insert(0, 'Shield bash')
 
 def rogue(self):
     self.cls = 'Rogue'

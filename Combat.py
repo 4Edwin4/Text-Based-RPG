@@ -133,9 +133,9 @@ def combat_round(player, monster):
                     print(player.actions_list)
                     action_choice = input("What action would you like to use? ").capitalize()
 
-                    if player.actions_list.index(action_choice) + 1 == len(player.actions_list):
+                    if action_choice == player.actions_list[-1]:
                         break
-                    elif action_choice == player.actions_list[player.actions_list.index(action_choice)]:
+                    elif action_choice in player.actions_list:
 
                         # player status update removes old effects then iterates by 1 and activates
                         player.remove_effect()
